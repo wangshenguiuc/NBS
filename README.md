@@ -50,4 +50,4 @@ To run the code, you need matlab (> 2015 I used) installed. Older matlab verisio
   2. Run `matlab main cancer_type='OV'` to run for OV cancer. For other cancer types, please change OV to the corresponding TCGA cancer name (e.g., BLCA, HNSC)
 
 ## License
-Cornell-MOE is licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+NBS2.0 is licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
