@@ -29,10 +29,9 @@ We then detected signature subnetworks by comparing the smoothed mutation profil
 For further details, see Online Methods of our paper. 
 
 ### Sub-directories
-  - this root directory contains impelmentation of the rationale model used for the beer review data. ``rationale.py`` implements the independent selection version and ``rationale_dependent.py`` implements the sequential selection version. See the paper for details.
-  - [example_rationales](example_rationales) contains rationales generated for the beer review data. 
-  - [ubuntu](ubuntu) contains alternative implementation for the AskUbuntu data.
-  - [medical](medical) contains alternative implementation for medical report classification. 
+  - [src] contains impelmentation of the rationale model used for the beer review data. ``main.m`` is the main function to run NBS2.0.
+  - [data] contains the pre-processed TCGA data which can be used to reproduce our results. 
+  - [output] contains the KM-plot and clustering assignments.
 
 <br>
 
@@ -48,23 +47,7 @@ For further details, see Online Methods of our paper.
 
 To run the code, you need matlab (> 2015 I used) installed. Older matlab verision may not have an implementation of K-means++. Next:
   1. Clone the NBS2.0 repo
-  2. Run `matlab main.m --help` to see all running options
-
-Example run of beer review data:
-```
-THEANO_FLAGS='device=gpu,floatX=float32'        # use GPU and 32-bit float
-python rationale.py                             # independent selection version
-      --embedding /path/to/vectors              # path to somatic mutation profile (required)
-      --train reviews.aspect0.train.txt.gz      # path to training set (required)
-      --dev reviews.aspect0.heldout.txt.gz      # path to development set (required)        
-      --load_rationale annotations.json         # path to rationale annotation for testing (required)
-      --aspect 0                                # which aspect (-1 means all aspects)
-      --dump outputs.json                       # dump selected rationales and predictions
-      --sparsity 0.0003 --coherent 2.0          # regularizations
-```
-
-<br>
-
+  2. Run `matlab main cancer_type='OV'` to run for OV cancer. For other cancer types, please change OV to the corresponding TCGA cancer name (e.g., BLCA, HNSC)
 
 ## License
 Cornell-MOE is licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
